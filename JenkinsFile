@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Build') {
+            steps {
+                // Build the project
+                sh './build.sh' // Replace with your build command
+            }
+        }
+
+        stage('Test') {
+            steps {
+                // Run tests
+                sh './test.sh' // Replace with your test command
+            }
+        }
+    }
+
+    post {
+        always {
+            // Post actions, such as cleanup or notifications
+            echo 'Pipeline finished.'
+        }
+    }
+}
+ 
